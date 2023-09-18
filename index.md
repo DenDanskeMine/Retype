@@ -39,3 +39,5 @@ Suspendisse id sem consectetuer libero luctus adipiscing.
 | :---        |    :----:   |          ---: |
 | Header      | Title       | Here's this   |
 | Paragraph   | Text        | And more      |
+
+[!badge Badge](badge.md)

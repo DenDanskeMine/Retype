@@ -45,6 +45,7 @@ Suspendisse id sem consectetuer libero luctus adipiscing.
 graph LR
     A[Hard edge] -->|Link text| B(Round edge)
     B --> C{Decision}
-    C -->|One| D[Result one]
-    C -->|Two| E[Result two]
+    C -->|1| D[Result one]
+    C -->|to| E[Result two]
+    C -->|tre| F[Result two]
 ```

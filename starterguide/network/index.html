@@ -9,21 +9,24 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Routing</title>
-    <meta name="title" content="Routing">
+    <title>Network</title>
+    <meta name="title" content="Network">
+    <meta name="description" content="Et netværk er det der forbinder Compuetere og andre netværks enheder sammen, så de kan kommuniker.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://netdev.online/routing-protokoller/routing/">
+    <link rel="canonical" href="https://netdev.online/starterguide/network/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://netdev.online/routing-protokoller/routing/">
-    <meta property="og:title" content="Routing">
+    <meta property="og:url" content="https://netdev.online/starterguide/network/">
+    <meta property="og:title" content="Network">
+    <meta property="og:description" content="Et netværk er det der forbinder Compuetere og andre netværks enheder sammen, så de kan kommuniker.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://netdev.online/routing-protokoller/routing/">
-    <meta property="twitter:title" content="Routing">
+    <meta property="twitter:url" content="https://netdev.online/starterguide/network/">
+    <meta property="twitter:title" content="Network">
+    <meta property="twitter:description" content="Et netværk er det der forbinder Compuetere og andre netværks enheder sammen, så de kan kommuniker.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -32,6 +35,7 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748375577871" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748375577871" data-turbo-eval="false" defer></script>
+    <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -163,18 +167,51 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="routing" class="break-words">
+<doc-anchor-target id="network" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#routing">#</doc-anchor-trigger>
-        <span>Routing</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#network">#</doc-anchor-trigger>
+        <span>Network</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="hvad-er-routing-protokoller">
+<p>Et netværk er det der forbinder Compuetere  og andre netværks enheder sammen, så de kan kommuniker.</p>
+<p>Der er 2 typer af netværk, LAN og WAN.</p>
+<doc-anchor-target id="lan">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#hvad-er-routing-protokoller">#</doc-anchor-trigger>
-        <span>Hvad er Routing protokoller?</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#lan">#</doc-anchor-trigger>
+        <span>LAN</span>
     </h2>
 </doc-anchor-target>
+<p>Et LAN (Local Area Network) er et netværk som er begrænset til et lille område, som f.eks. et hus eller en bygning.
+Et  LAN er typisk et privat netværk, som kun er tilgængeligt for de enheder som er tilsluttet netværket.
+Man kan også have et LAN som er tilgængeligt for alle, som f.eks. et offentligt wifi netværk.</p>
+<p><a href="../../test/" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-700 dark:text-dark-600 bg-white border border-gray-300 dark:border-transparent hover:bg-gray-200 dark:hover:bg-dark-300 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
+    <span>LAN</span>
+</a></p>
+<doc-anchor-target id="wan">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#wan">#</doc-anchor-trigger>
+        <span>WAN</span>
+    </h2>
+</doc-anchor-target>
+<p>WAN (Wide Area Network) er et netværk som er større end et LAN, og er typisk et netværk som er tilgængeligt for alle.
+Et eksempel på et WAN er internettet, som er et netværk som er tilgængeligt for alle.</p>
+<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">
+flowchart LR
+	166881[/&quot;ISP&quot;\] --- 823129[&quot;WAN&quot;]
+	style 166881 fill:#99e2b4,stroke-width: 0px,text:,color:#ffffff
+	style 823129 fill:#ffff,stroke-dasharray: 5,stroke:#000000,color:#fffffl
+	823129 --- 230466((&quot;Router&quot;))
+	style 230466 fill:#036666,text:,color:#ffffff
+	230466 --- 171966[&quot;LAN&quot;]
+	style 171966 fill:#ffff,stroke-dasharray: 5,stroke:#000000,color:#fffffl
+	subgraph 171966[&quot;LAN&quot;]
+		274694[\&quot;PC&quot;/]
+		style 274694 fill:#5bcc90,color:#ffffff,stroke-width: 0px
+	end
+	subgraph 823129[&quot;WAN&quot;]
+		166881
+	end
+</pre></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -184,20 +221,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../starterguide/starter-guide/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Forside</span>
+                                                <span class="block mt-1">Første Konfiguration</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../starterguide/starter-guide/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../test/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Første Konfiguration</span>
+                                                <span class="block mt-1">Dette er en test</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -241,6 +278,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Routing", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Network", level: 2, icon: "file", hasPrism: false, hasMermaid: true, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

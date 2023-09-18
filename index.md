@@ -1,10 +1,8 @@
 ---
-label: Forside
+label: Hjem
 icon: home
 ---
-
-# Velkommen til **NETDEV**.
-
+#
 ![](/img/hero-black-slug.png)
 
 ## Dansk Dokumentation
@@ -30,8 +28,9 @@ interface fastethernet 0/0
 ```
 ```mermaid
 flowchart LR
-	1((("R1"))) --- 2((("SW1")))
-	style 1 fill:lightgreen
+	1((("&nbsp;R1&nbsp;"))) --- 2((("SW1")))
+	style 1 fill:#99e2b4,stroke-width: 0px
+	style 2 stroke-width: 0px
 ```
 [!button text="Gå til guide"](/Starterguide/starter-guide)
 +++ :icon-arrow-switch: SW1 
@@ -43,8 +42,9 @@ interface vlan 1
 ```
 ```mermaid
 flowchart LR
-	1((("R1"))) --- 2((("SW1")))
-	style 2 fill:lightgreen
+	1((("&nbsp;R1&nbsp;"))) --- 2((("SW1")))
+	style 1 stroke-width: 0px
+	style 2 fill:#99e2b4,stroke-width: 0px
 ```
 [!button text="Gå til guide"](/Starterguide/starter-guide)
 +++

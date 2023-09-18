@@ -16,23 +16,24 @@ interface fastethernet 0/0
 ```
 ```mermaid
 flowchart LR
-	1((("R1"))) --- 2((("SW1")))
-	style 1 fill:lightgreen
+	1((("&nbsp;R1&nbsp;"))) --- 2((("SW1")))
+	style 1 fill:#99e2b4,stroke-width: 0px
+	style 2 stroke-width: 0px
 ```
 +++ :icon-arrow-switch: SW1 
 ```js
 interface vlan 1
  ip address 172.16.0.2 255.255.255.0
  no shutdown
-
 ```
+
 ```mermaid
 flowchart LR
-	1((("R1"))) --- 2((("SW1")))
-	style 2 fill:lightgreen
+	1((("&nbsp;R1&nbsp;"))) --- 2((("SW1")))
+	style 1 stroke-width: 0px
+	style 2 fill:#99e2b4,stroke-width: 0px
 ```
 +++
-
 ## LAN 
 
 Det vi lige har konfigureret er et [!badge text="LAN" variant="ghost" ](/test.md) (Local Area Network), som er et netværk som er begrænset til et lille område, som f.eks. et hus eller en bygning.

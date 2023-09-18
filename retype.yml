@@ -8,3 +8,7 @@ links:
   link: https://retype.com/guides/getting-started/
 footer:
   copyright: "&copy; Copyright {{ year }}. All rights reserved."
+steps:
+- uses: actions/checkout@v3
+
+- uses: retypeapp/action-build@latest

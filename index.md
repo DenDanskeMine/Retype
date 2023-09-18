@@ -1,3 +1,8 @@
+---
+label: Forside
+icon: home
+---
+
 # Velkommen til **NETDEV**.
 
 ## Hvad er NETDEV?
@@ -6,68 +11,30 @@ Vi er en dokumentations hjemmeside som er lavet for at få nem og hurtig adgang 
 
 Samt er målet også at folk der intet ved, kan lære noget omkring netværk og netværksudstyr.
 
-```html
-<h1>Velkommen til NETDEV.</h1>
-<p>Vi er en dokumentations hjemmeside som er lavet for at få nem og hurtig adgang til informationer omkring netværk og netværksudstyr.</p>
-<p>Samt er målet også at folk der intet ved, kan lære noget omkring netværk og netværksudstyr.</p>
+### Din første konfiguration
+
+I denne guide vil jeg tage dig igennem din første konfiguration af en cisco router og switch. (ios)
+
+Her er en simpel konfiguration af en [!badge text="router" variant="ghost" ](router.md) og en [!badge text="switch" variant="ghost" ](router.md).
+
++++ :icon-x-circle: R1
+```js
+interface fastethernet 0/0
+ ip address 172.16.0.1 255.255.255.0
+ no shutdown
+
 ```
-> This is the first level of quoting.
->
-> > This is nested blockquote.
->>
-> > > Back to the first level.
+[!button icon="mark-github" text="Se resten af guiden"](test.md)
++++ :icon-arrow-switch: SW1 
+```js
+interface vlan 1
+ ip address 172.16.0.2 255.255.255.0
+ no shutdown
 
-*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
-    viverra nec, fringilla in, laoreet vitae, risus.
-*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
-    Suspendisse id sem consectetuer libero luctus adipiscing.
-
-    *   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
-viverra nec, fringilla in, laoreet vitae, risus.
-*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
-Suspendisse id sem consectetuer libero luctus adipiscing.
-
-
-<a href="&#x6D;&#x61;i&#x6C;&#x74;&#x6F;:&#x61;&#x64;&#x64;&#x72;&#x65;
-&#115;&#115;&#64;&#101;&#120;&#x61;&#109;&#x70;&#x6C;e&#x2E;&#99;&#111;
-&#109;">&#x61;&#x64;&#x64;&#x72;&#x65;&#115;&#115;&#64;&#101;&#120;&#x61;
-&#109;&#x70;&#x6C;e&#x2E;&#99;&#111;&#109;</a>
-
-| Syntax      | Description | Test Text     |
-| :---        |    :----:   |          ---: |
-| Header      | Title       | Here's this   |
-| Paragraph   | Text        | And more      |
-
-[!badge Badge](badge.md)
-```mermaid
-graph LR
-    A[Hard edge] -->|Link text| B(Round edge)
-    B --> C{Decision}
-    C -->|1| D[Result one]
-    C -->|to| E[Result two]
-    C -->|tre| F[Result two]
 ```
-```mermaid
+[!button icon="mark-github" text="Se resten af guiden"](test.md)
++++
 
-stateDiagram
-    direction LR
-    [*] --> A
-    A --> B
-    B --> C
-    state B {
-      direction LR
-      a --> b
-    }
-    B --> D
-```
 
-[!button icon="github" text="github"]
 
-+++ Apple
-This is an apple 🍎
-+++ Orange
-This is an orange 🍊
-+++ Banana
-This is a banana 🍌
+

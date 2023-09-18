@@ -2,7 +2,9 @@ input: .
 output: .retype
 url: https://netdev.online
 branding:
-  logo: img/LOGO-01.png
+  logo: img/LOGO-04.png
+  logoDark: img/LOGO-01.png
+  color: red
 links:
 - text: Forside
   link: https://retype.com/guides/getting-started/

@@ -28,7 +28,7 @@ interface fastethernet 0/0
 ```
 ```mermaid
 flowchart LR
-	1((("&nbsp;R1&nbsp;"))) --- 2((("SW1")))
+	1((("&nbsp;R1&nbsp;"))) --- 2["SW1"]
 	style 1 fill:#99e2b4,stroke-width: 0px
 	style 2 stroke-width: 0px
 ```
@@ -42,7 +42,7 @@ interface vlan 1
 ```
 ```mermaid
 flowchart LR
-	1((("&nbsp;R1&nbsp;"))) --- 2((("SW1")))
+	1((("&nbsp;R1&nbsp;"))) --- 2["SW1"]
 	style 1 stroke-width: 0px
 	style 2 fill:#99e2b4,stroke-width: 0px
 ```

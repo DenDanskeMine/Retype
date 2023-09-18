@@ -49,6 +49,7 @@ graph LR
     C -->|to| E[Result two]
     C -->|tre| F[Result two]
 ```
+```mermaid
 
 stateDiagram
     direction LR
@@ -60,3 +61,6 @@ stateDiagram
       a --> b
     }
     B --> D
+```
+
+[!button icon="rocket" text="github"]

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://netdev.online/sitemap.xml.gz

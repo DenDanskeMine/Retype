@@ -1,8 +1,8 @@
 ---
-label: Første Konfiguration
+label: Basal router konfiguration
 icon: gear
 ---
-## Første konfiguration
+## Første konfiguration af en router
 
 I denne guide vil jeg tage dig igennem din første konfiguration af en cisco router og switch. (ios)
 
@@ -120,13 +120,21 @@ Når du har skrevet kommandoen, trykker du enter, og nu vil der komme en masse t
 R1(config-if)# %LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
 ```
 Dette er bare routeren som fortæller os at porten er blevet aktiveret / slået til.<br>
-Hvis du nu skriver `end` og trykker enter, vil du komme tilbage til [!badge text="Privileged EXEC Mode" variant="ghost" ](privilegemode.md).<br>
+
+### show running-config
+Hvis du nu skriver `end` og trykker enter, vil du komme tilbage til [!badge text="Privileged EXEC Mode" variant="ghost" ](#privileged-exec-mode).<br>
+
+
+!!!warning Info
 `exit` tager dig ud af den mode du er i, og tilbage til den mode du var i før.<br>
-`end` tager dig ud af den mode du er i, og tilbage til [!badge text="Privileged EXEC Mode" variant="ghost" ](privilegemode.md).
+`end` tager dig tilbage til [!badge text="Privileged EXEC Mode" variant="ghost" ](#privileged-exec-mode).
+!!!
+
+
 ```js
 R1#
 ```
-Dette betyder at du er tilbage i [!badge text="Privileged EXEC Mode" variant="ghost" ](privilegemode.md), og du kan nu se din konfiguration ved at skrive `show running-config` og trykke enter.
+Dette betyder at du er tilbage i [!badge text="Privileged EXEC Mode" variant="ghost" ](#privileged-exec-mode), og du kan nu se din konfiguration ved at skrive `show running-config` og trykke enter.
 
 Du vil nu i bunden af terminalen se et promt som ser sådan her ud:
 ```js
@@ -229,64 +237,37 @@ interface fastethernet 0/0
  ip address 172.16.0.1 255.255.255.0
  no shutdown
 ```
+Hvis du er inde i [!badge text="Global Configuration Mode" variant="ghost" ](#global-configuration-mode), kan du blot kopiere og indsætte konfigurationen, og så vil den virke.<br>
+Man kan faktisk skrive hele konfigurationen i en tekst fil, og så kopiere og indsætte den i routeren, og så vil den konfigurere sig selv. :smile: <br>
+Dog skal man huske at alt skal være skrevet rigtigt, ellers vil det selfølig ikke virke.
+
+## Sikkerhed og SSH
+
+Nu er routeren konfigureret, så nu vil vi gerne sikre den, så andre ikke kan komme ind og lave ændringer på den.
+
+For at gøre dette, skal vi lave en bruger, som har adgang til routeren, og så skal vi sætte en adgangskode på routeren.
+Vi skal også kryptere adgangskoden, så den ikke står i klartekst.
+
+Der er mange muligheder for kryptering og hashing bla:
+Diffie-Hellman, RSA, AES, 3DES, SHA, MD5 osv.
+
+Vi starter simplet ud, så her vil vi "bare" bruge Type 5 kryptering.
+Type 5 er faktisk en rigtig svær kryptering at cracke, så det er en god start.
 
 
+!!!warning Type 5 kryptering
+Type 5 er delt op således:<br>
+`$1$<salt>$<hash>`<br>
 
+`$1$` indikerer at det er Type 5 kryptering.<br>
+`<salt>` er en tilfældig streng som er tilføjet til passwordet, for at gøre det sværere at cracke.<br>
+`$` er en seperator.<br>
+`<hash>` er det faktiske hashede password.<br>
 
+Her er passwordet i min konfig: `$1$mERr$YlCkLMcTYWwkF1Ccndtll`<br>
+Lad os dele det op, så du kan se hvordan det ser ud.<br>
 
-
-
-
-
-
-
-
-
-
-#  dette er en test
-
-
-
-
-
-+++ :icon-x-circle: R1
-```js
-hostname R1
-
-interface fastethernet 0/0
- ip address 172.16.0.1 255.255.255.0
- no shutdown
-
-```
-```mermaid
-flowchart LR
-	1((("&nbsp;R1&nbsp;"))) --- 2["SW1"]
-	style 1 fill:#99e2b4,stroke-width: 0px
-	style 2 stroke-width: 0px
-```
-
-+++ :icon-arrow-switch: SW1 
-```js
-hostname SW1
-
-interface vlan 1
- ip address 172.16.0.2 255.255.255.0
- no shutdown
-```
-
-```mermaid
-flowchart LR
-	1((("&nbsp;R1&nbsp;"))) --- 2["SW1"]
-	style 1 stroke-width: 0px
-	style 2 fill:#99e2b4,stroke-width: 0px
-```
-+++
-## LAN 
-
-Det vi lige har konfigureret er et [!badge text="LAN" variant="ghost" ](/test.md) (Local Area Network), som er et netværk som er begrænset til et lille område, som f.eks. et hus eller en bygning.
-
-konfiguration af et LAN er meget simpelt, da det bare er at sætte en ip-adresse på interfacet man ønsker at bruge.
-
-
-
-```js 
+`$1$` indikerer Type 5.<br>
+`<salt>` er **mERr**<br>
+`<hash>` er **YlCkLMcTYWwkF1Ccndtll**.<br>
+!!!

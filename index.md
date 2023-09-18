@@ -63,7 +63,7 @@ stateDiagram
     B --> D
 ```
 
-[!button icon="rocket" text="github"]
+[!button icon="github" text="github"]
 
 +++ Apple
 This is an apple 🍎

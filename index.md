@@ -5,17 +5,19 @@ icon: home
 
 # Velkommen til **NETDEV**.
 
-![](/img/retype-hero.png)
+![](/img/hero-black-slug.png)
 
-## Hvad er NETDEV?
+## Dansk Dokumentation
 
 Vi er en dokumentations hjemmeside som er lavet for at få nem og hurtig adgang til informationer omkring netværk og netværksudstyr.
 
 Samt er målet også at folk der intet ved, kan lære noget omkring netværk og netværksudstyr.
 
-### Din første konfiguration
+Guides og dokumentation er skrevet på dansk, da det er det sprog vi bedst kan.
 
-I denne guide vil jeg tage dig igennem din første konfiguration af en cisco router og switch. (ios)
+Nedenfor kan du se de forskellige kategorier vi har lavet guides til.
+
+### Eksemple på en guide
 
 Her er en simpel konfiguration af en [!badge text="router" variant="ghost" ](router.md) og en [!badge text="switch" variant="ghost" ](router.md).
 
@@ -26,7 +28,12 @@ interface fastethernet 0/0
  no shutdown
 
 ```
-[!button icon="mark-github" text="Se resten af guiden"](test.md)
+```mermaid
+flowchart LR
+	1((("R1"))) --- 2((("SW1")))
+	style 1 fill:lightgreen
+```
+[!button text="Gå til guide"](/Starterguide/starter-guide)
 +++ :icon-arrow-switch: SW1 
 ```js
 interface vlan 1
@@ -34,7 +41,12 @@ interface vlan 1
  no shutdown
 
 ```
-[!button icon="mark-github" text="Se resten af guiden"](test.md)
+```mermaid
+flowchart LR
+	1((("R1"))) --- 2((("SW1")))
+	style 2 fill:lightgreen
+```
+[!button text="Gå til guide"](/Starterguide/starter-guide)
 +++
 
 

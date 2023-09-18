@@ -254,6 +254,56 @@ Diffie-Hellman, RSA, AES, 3DES, SHA, MD5 osv.
 Vi starter simplet ud, så her vil vi "bare" bruge Type 5 kryptering.
 Type 5 er faktisk en rigtig svær kryptering at cracke, så det er en god start.
 
+### ip domain-name
+
+Først skal vi sætte en `ip domain-name` på routeren.<br>
+Dette gør vi ved at skrive `ip domain-name <domæne navn>` og trykke enter. inde i [!badge text="Global Configuration Mode" variant="ghost" ](#global-configuration-mode).<br>
+`<domæne navn>` er det domæne navn som routeren er en del af - Det kan være hvad som helst.<br>
+Jeg har valgt at kalde mit domæne for `test.dk`.<br>
+Så jeg skriver `ip domain-name test.dk` og trykker enter.
+!!!warning Info
+Bemærk at der ikke må være mellemrum i domæne navnet.<br>
+`ip domain-name test .dk` :icon-x-circle-fill:<br>
+`ip domain-name test.dk` :icon-feed-issue-closed:<br>
+!!!
+Domænet bliver brugt til at lave vores RSA nøgle, som vi skal bruge til at kryptere SSH sessionen.
+
+Hvis man prøver at lave en RSA nøgle uden et domæne, vil man få denne fejl:
+```js
+% Please define a domain-name first.
+```
+
+### crypto key generate rsa
+
+Når vi har sat et domæne på routeren, kan vi lave en RSA nøgle.<br>
+For at lave en RSA nøgle, skriver vi `crypto key generate rsa` og trykker enter.<br>
+Dette vil prompte os med en masse spørgsmål.<br>
+Det første spørgsmål er hvor mange bits nøglen skal være på.<br>
+Jeg har valgt at sætte den til 1024 bits, da det er en god størrelse til en router.<br>
+!!!warning Info
+Bemærk at jo flere bits nøglen er på, jo længere tid tager den at lave.<br>
+Jo flere bits nøglen er på, jo sværere er den at cracke.<br>
+!!!
+
+Sådan ville det se ud når den prompter dig med spørgsmålet:
+```js	
+How many bits in the modulus [512]:
+```
+Her er det vigtigt at du skriver `1024` og trykker enter, så du får en 1024 bits nøgle.<br>
+Hvis du ikke skriver noget, vil den lave en 512 bits nøgle, og det er ikke særlig sikkert.<br>
+Vi skal have `SSH Version 2`, og det kræver en nøgle der er højrere end 768 bits.<br>
+
+Når du har skrevet `1024` og trykket enter, vil den prompte dig med dette:
+```js
+% Generating 1024 bit RSA keys, keys will be non-exportable...[OK]
+```
+
+
+
+
+
+
+
 
 !!!warning Type 5 kryptering
 Type 5 er delt op således:<br>

@@ -5,6 +5,8 @@ icon: home
 
 # Velkommen til **NETDEV**.
 
+![](/img/retype-hero.png)
+
 ## Hvad er NETDEV?
 
 Vi er en dokumentations hjemmeside som er lavet for at få nem og hurtig adgang til informationer omkring netværk og netværksudstyr.

@@ -4,7 +4,12 @@ icon: gear
 ---
 ## Første konfiguration af en router
 
-I denne guide vil jeg tage dig igennem din første konfiguration af en cisco router og switch. (ios)
+I denne guide vil jeg tage dig igennem din første konfiguration af en cisco router.<br>
+
+Hvis du ikke har en router, kan du bruge [!badge text="Packet Tracer" variant="ghost" ](https://skillsforall.com/resources/lab-downloads?courseLang=en-US), som er et program som emulerer cisco udstyr.<br>
+Bemærk at du skal have en konto for at kunne downloade programmet.<br>
+Du kan også bruge Cisco DevNet, men dette er lidt mere avanceret at skulle sætte op.<br>
+
 
 Her er en simpel konfiguration af en [!badge text="router" variant="ghost" ](router.md) og en [!badge text="switch" variant="ghost" ](router.md).
 ### Opstart af router og user EXEC Mode
@@ -379,7 +384,7 @@ Det skal vi lige have ændret, så vi skriver `transport input ssh` og trykker e
 Dette gør at vi kun kan logge ind på routeren via SSH, og ikke telnet.<br>
 
 Vi skal også fortælle routeren at vi vil bruge vores lokale bruger til at logge ind med, så vi skriver `login local` og trykker enter.<br>
-Vi skal også have en adgangskode på, så vi skriver `secret <adgangskode>` og trykker enter.<br>
+Vi skal også have en adgangskode på, så vi skriver `password <adgangskode>` og trykker enter.<br>
 
 Vi kommer ikke til at skulle bruge koden.<br>
 Men den er nødvendig for at vi kan logge ind på routeren, med SSH<br>
@@ -390,7 +395,7 @@ Vi skal også ind på line con 0, så vi skriver `line con 0` og trykker enter.<
 
 Her skal vi også sætte `login local` på og en adgangskode, så vi skriver `login local` og trykker enter.<br>
 
-Nu skriver vi `secret <adgangskode>` og trykker enter.<br>
+Nu skriver vi `password <adgangskode>` og trykker enter.<br>
 
 Vi skal også ind på line aux 0, så vi skriver `line aux 0` og trykker enter.<br>
 `aux` står for auxiliary, og det er også en fysiske port på routeren.<br>
@@ -399,7 +404,24 @@ Den emulerer en modem forbindelse.<br>
 
 Her skal vi også sætte `login local` på og en adgangskode, så vi skriver `login local` og trykker enter.<br>
 
-Vi skriver også `secret <adgangskode>` igen, og trykker enter.<br>
+Vi skriver også `password <adgangskode>` igen, og trykker enter.<br>
+
+### Opsummering
+
+Nu har vi konfigureret routeren, så den er sikker, og vi kan logge ind på den via SSH.<br>
+Det sidste vi skal, er at gemme konfigurationen, så den ikke forsvinder når vi genstarter routeren.<br>
+
+Vi kan gøre dette på forskellige måder bla:
+```js
+copy running-config startup-config
+```
+eller
+```js
+write memory
+```
+
+
+
 
 Her er alt den samlede konfiguration vi har lavet på routeren:
 
@@ -419,18 +441,21 @@ enable secret Cisco
 line vty 0 15
  transport input ssh
  login local
- secret Cisco
+ password Cisco
 !
 line con 0
  login local
- secret Cisco
+ password Cisco
 !
 line aux 0
  login local
- secret Cisco
+ password Cisco
 ```
 
+## Packet Tracer
+Som altid kan du downloade det færdige protjekt her: [!file](/Downloads/Starter-Guide-Router.pkt)
 
+Se min [!badge Packet Tracer Starterguide](/Starterguide/pt.md)
 
 
 

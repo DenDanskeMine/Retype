@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.748407837081">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.748433234738">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Basal router konfiguration</title>
     <meta name="title" content="Basal router konfiguration">
-    <meta name="description" content="I denne guide vil jeg tage dig igennem din første konfiguration af en cisco router og switch. (ios)">
+    <meta name="description" content="I denne guide vil jeg tage dig igennem din første konfiguration af en cisco router.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://netdev.online/starterguide/starter-guide/">
@@ -20,22 +20,22 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://netdev.online/starterguide/starter-guide/">
     <meta property="og:title" content="Basal router konfiguration">
-    <meta property="og:description" content="I denne guide vil jeg tage dig igennem din første konfiguration af en cisco router og switch. (ios)">
+    <meta property="og:description" content="I denne guide vil jeg tage dig igennem din første konfiguration af en cisco router.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://netdev.online/starterguide/starter-guide/">
     <meta property="twitter:title" content="Basal router konfiguration">
-    <meta property="twitter:description" content="I denne guide vil jeg tage dig igennem din første konfiguration af en cisco router og switch. (ios)">
+    <meta property="twitter:description" content="I denne guide vil jeg tage dig igennem din første konfiguration af en cisco router.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.748407837081" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.748433234738" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748407837081" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748433234738" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748407837081" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.748407837081" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748433234738" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.748433234738" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -179,7 +179,12 @@
         <span>Første konfiguration af en router</span>
     </h2>
 </doc-anchor-target>
-<p>I denne guide vil jeg tage dig igennem din første konfiguration af en cisco router og switch. (ios)</p>
+<p>I denne guide vil jeg tage dig igennem din første konfiguration af en cisco router.<br></p>
+<p>Hvis du ikke har en router, kan du bruge <a href="https://skillsforall.com/resources/lab-downloads?courseLang=en-US" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-600 bg-white border border-gray-300 dark:text-dark-350 dark:border-dark-450 dark:bg-dark-450 hover:bg-gray-200 dark:hover:bg-dark-400 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
+    <span>Packet Tracer</span>
+</a>, som er et program som emulerer cisco udstyr.<br>
+Bemærk at du skal have en konto for at kunne downloade programmet.<br>
+Du kan også bruge Cisco DevNet, men dette er lidt mere avanceret at skulle sætte op.<br></p>
 <p>Her er en simpel konfiguration af en <a href="router.md" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-600 bg-white border border-gray-300 dark:text-dark-350 dark:border-dark-450 dark:bg-dark-450 hover:bg-gray-200 dark:hover:bg-dark-400 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
     <span>router</span>
 </a> og en <a href="router.md" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-600 bg-white border border-gray-300 dark:text-dark-350 dark:border-dark-450 dark:bg-dark-450 hover:bg-gray-200 dark:hover:bg-dark-400 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
@@ -707,20 +712,36 @@ DEtter gør at folk også skal bruge en adgangskode, når de vil ind i <doc-anch
 <p>Det skal vi lige have ændret, så vi skriver <code v-pre>transport input ssh</code> og trykker enter.<br>
 Dette gør at vi kun kan logge ind på routeren via SSH, og ikke telnet.<br></p>
 <p>Vi skal også fortælle routeren at vi vil bruge vores lokale bruger til at logge ind med, så vi skriver <code v-pre>login local</code> og trykker enter.<br>
-Vi skal også have en adgangskode på, så vi skriver <code v-pre>secret &lt;adgangskode&gt;</code> og trykker enter.<br></p>
+Vi skal også have en adgangskode på, så vi skriver <code v-pre>password &lt;adgangskode&gt;</code> og trykker enter.<br></p>
 <p>Vi kommer ikke til at skulle bruge koden.<br>
 Men den er nødvendig for at vi kan logge ind på routeren, med SSH<br></p>
 <p>Vi skal også ind på line con 0, så vi skriver <code v-pre>line con 0</code> og trykker enter.<br>
 <code v-pre>con</code> står for console, og det er den fysiske port på routeren.<br>
 <code v-pre>0</code> er port nummeret.<br></p>
 <p>Her skal vi også sætte <code v-pre>login local</code> på og en adgangskode, så vi skriver <code v-pre>login local</code> og trykker enter.<br></p>
-<p>Nu skriver vi <code v-pre>secret &lt;adgangskode&gt;</code> og trykker enter.<br></p>
+<p>Nu skriver vi <code v-pre>password &lt;adgangskode&gt;</code> og trykker enter.<br></p>
 <p>Vi skal også ind på line aux 0, så vi skriver <code v-pre>line aux 0</code> og trykker enter.<br>
 <code v-pre>aux</code> står for auxiliary, og det er også en fysiske port på routeren.<br>
 Den emulerer en modem forbindelse.<br>
 <code v-pre>0</code> er port nummeret.<br></p>
 <p>Her skal vi også sætte <code v-pre>login local</code> på og en adgangskode, så vi skriver <code v-pre>login local</code> og trykker enter.<br></p>
-<p>Vi skriver også <code v-pre>secret &lt;adgangskode&gt;</code> igen, og trykker enter.<br></p>
+<p>Vi skriver også <code v-pre>password &lt;adgangskode&gt;</code> igen, og trykker enter.<br></p>
+<doc-anchor-target id="opsummering">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#opsummering">#</doc-anchor-trigger>
+        <span>Opsummering</span>
+    </h3>
+</doc-anchor-target>
+<p>Nu har vi konfigureret routeren, så den er sikker, og vi kan logge ind på den via SSH.<br>
+Det sidste vi skal, er at gemme konfigurationen, så den ikke forsvinder når vi genstarter routeren.<br></p>
+<p>Vi kan gøre dette på forskellige måder bla:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">copy running-config startup-config</code></pre>
+</doc-codeblock></div>
+<p>eller</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">write memory</code></pre>
+</doc-codeblock></div>
 <p>Her er alt den samlede konfiguration vi har lavet på routeren:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-javascript"><code v-pre class="language-javascript">hostname R1
@@ -738,16 +759,40 @@ enable secret Cisco
 line vty 0 15
  transport input ssh
  login local
- secret Cisco
+ password Cisco
 !
 line con 0
  login local
- secret Cisco
+ password Cisco
 !
 line aux 0
  login local
- secret Cisco</code></pre>
+ password Cisco</code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="packet-tracer">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#packet-tracer">#</doc-anchor-trigger>
+        <span>Packet Tracer</span>
+    </h2>
+</doc-anchor-target>
+<p>Som altid kan du downloade det færdige protjekt her: 
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded transition-colors duration-150">
+    <div class="flex items-center text-blue-500 dark:text-blue-400">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M21 14c-.55 0-1 .45-1 1v4c0 .55-.45 1-1 1H5c-.55 0-1-.45-1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-4c0-.55-.45-1-1-1z"/><path d="M11.29 15.71c.09.09.2.17.33.22.12.04.25.07.38.07s.26-.03.38-.08.23-.12.33-.22l5-5a.996.996 0 10-1.41-1.41l-3.3 3.3V3c0-.55-.45-1-1-1s-1 .45-1 1v9.59l-3.29-3.3A.996.996 0 106.3 10.7l4.99 5.01z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">Starter-Guide-Router.pkt</span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>Starter-Guide-Router.pkt</span>
+        <span class="inline-block ml-2">48.3KB</span>
+    </div>
+    <a href="../../downloads/starter-guide-router.pkt" class="absolute block inset-0" target="_blank" download="Starter-Guide-Router.pkt"></a>
+</div>
+</p>
+<p>Se min <a href="/starterguide/pt.md" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-blue-600 bg-blue-100 border border-blue-100 hover:border-blue-300 dark:hover:bg-blue-200 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
+    <span>Packet Tracer Starterguide</span>
+</a></p>
 
                                 
                                 <!-- Required only on API pages -->

@@ -144,7 +144,3 @@ BGP (Border Gateway Protocol) er ikke designet til at tillade automatisk tilføj
 
 I det store billede giver BGP's manuelle konfiguration og kontrollerede proces netværksadministratorer mulighed for at opretholde kontrol over deres egne netværk og beskytte internettets integritet og pålidelighed. 
  
-
-## eBGP
-
-eBGP er en del af BGP, hvor internetudbydere udveksler routingtabeller med hinanden. Dette gør det muligt for dem at sende trafik på tværs af deres AS'er og til andre AS'er på internettet. eBGP spiller en afgørende rolle i at sikre, at internettrafikken når sin destination effektivt.

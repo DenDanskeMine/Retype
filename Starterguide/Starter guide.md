@@ -11,8 +11,7 @@ Bemærk at du skal have en konto for at kunne downloade programmet.<br>
 Du kan også bruge Cisco DevNet, men dette er lidt mere avanceret at skulle sætte op.<br>
 
 
-Her er en simpel konfiguration af en [!badge text="router" variant="ghost" ](router.md) og en [!badge text="switch" variant="ghost" ](router.md).
-### Opstart af router og user EXEC Mode
+Her er en simpel konfiguration af en [!badge text="router" variant="ghost" ](router.md).
 
 Når du starter din router op for første gang, vil du blive mødt af en prompt, som ser sådan her ud:
 

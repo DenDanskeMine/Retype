@@ -243,6 +243,10 @@ Dog skal man huske at alt skal være skrevet rigtigt, ellers vil det selfølig i
 
 ## Sikkerhed og SSH
 
+!!!
+Alle adgangskoder i denne guide er `Cisco`.<br> 
+!!!
+
 Nu er routeren konfigureret, så nu vil vi gerne sikre den, så andre ikke kan komme ind og lave ændringer på den.
 
 For at gøre dette, skal vi lave en bruger, som har adgang til routeren, og så skal vi sætte en adgangskode på routeren.
@@ -253,6 +257,23 @@ Diffie-Hellman, RSA, AES, 3DES, SHA, MD5 osv.
 
 Vi starter simplet ud, så her vil vi "bare" bruge Type 5 kryptering.
 Type 5 er faktisk en rigtig svær kryptering at cracke, så det er en god start.
+
+!!!warning Type 5 kryptering
+Type 5 er delt op således:<br>
+`$1$<salt>$<hash>`<br>
+
+`$1$` indikerer at det er Type 5 kryptering.<br>
+`<salt>` er en tilfældig streng som er tilføjet til passwordet, for at gøre det sværere at cracke.<br>
+`$` er en seperator.<br>
+`<hash>` er det faktiske hashede password.<br>
+
+Her er passwordet i min konfig: `$1$mERr$YlCkLMcTYWwkF1Ccndtll`<br>
+Lad os dele det op, så du kan se hvordan det ser ud.<br>
+
+`$1$` indikerer Type 5.<br>
+`<salt>` er **mERr**<br>
+`<hash>` er **YlCkLMcTYWwkF1Ccndtll**.<br>
+!!!
 
 ### ip domain-name
 
@@ -277,8 +298,7 @@ Hvis man prøver at lave en RSA nøgle uden et domæne, vil man få denne fejl:
 
 Når vi har sat et domæne på routeren, kan vi lave en RSA nøgle.<br>
 For at lave en RSA nøgle, skriver vi `crypto key generate rsa` og trykker enter.<br>
-Dette vil prompte os med en masse spørgsmål.<br>
-Det første spørgsmål er hvor mange bits nøglen skal være på.<br>
+Dette vil promte os med, hvor mange bits nøglen skal være på.<br>
 Jeg har valgt at sætte den til 1024 bits, da det er en god størrelse til en router.<br>
 !!!warning Info
 Bemærk at jo flere bits nøglen er på, jo længere tid tager den at lave.<br>
@@ -297,27 +317,121 @@ Når du har skrevet `1024` og trykket enter, vil den prompte dig med dette:
 ```js
 % Generating 1024 bit RSA keys, keys will be non-exportable...[OK]
 ```
+Nu har vi lavet en RSA nøgle, som vi kan bruge til at kryptere SSH sessionen.<br>
 
-
-
-
-
-
-
-
-!!!warning Type 5 kryptering
-Type 5 er delt op således:<br>
-`$1$<salt>$<hash>`<br>
-
-`$1$` indikerer at det er Type 5 kryptering.<br>
-`<salt>` er en tilfældig streng som er tilføjet til passwordet, for at gøre det sværere at cracke.<br>
-`$` er en seperator.<br>
-`<hash>` er det faktiske hashede password.<br>
-
-Her er passwordet i min konfig: `$1$mERr$YlCkLMcTYWwkF1Ccndtll`<br>
-Lad os dele det op, så du kan se hvordan det ser ud.<br>
-
-`$1$` indikerer Type 5.<br>
-`<salt>` er **mERr**<br>
-`<hash>` er **YlCkLMcTYWwkF1Ccndtll**.<br>
 !!!
+Hvis du vil slippe for at blive promptet med spørgsmålet, kan du skrive `crypto key generate rsa general-keys modulus 1024 ` og trykke enter.<br>
+!!!
+
+Nu skriver vi `ip ssh version 2` og trykker enter.<br>
+Nu har vi sat SSH versionen til 2.<br>
+
+### username og password
+Det næste vi skal gøre, er at lave en bruger, som har adgang til routeren.<br>
+Vi vælger at lave en lokal bruger, man kan også sætte aaa på routeren. (Authentication, Authorization, Accounting)
+Men det bliver i en anden guide. :smile: <br>
+
+For at lave en bruger, skriver vi `username <brugernavn> secret <adgangskode>` og trykker enter.<br>
+`<brugernavn>` er det brugernavn som vi vil give brugeren.<br>
+`<secret>` er den adgangskode som vi vil give brugeren.<br>
+
+Jeg har valgt at kalde min bruger for `Cisco`, og adgangskoden er `Cisco`.<br>
+
+Vi skal også sætte `enable secret` på routeren.<br>
+DEtter gør at folk også skal bruge en adgangskode, når de vil ind i [!badge text="Privileged EXEC Mode" variant="ghost" ](#privileged-exec-mode).<br>
+
+Vi skriver derfor `enable secret <adgangskode>`, og trykker enter.
+
+!!!warning Info
+Istedet for `secret` *kan* man bruge `password`.<br>
+
+Det er dog ikke en god ide, da `password` ikke hasher adgangskoden, så den vil stå i klartekst i konfigurationen.<br>
+
+Man kan bruge `service password-encryption` til at gøre passwordet ikke læsbart med en Type 7 krypteret hash.
+
+Dette kan nemt crackes, så det er kun for, at gøre det sværere at læse.<br>
+
+Det er derfor en god ide at bruge `secret`, da den bruger en stærkere MD5 hash, som er sværere at cracke.<br>
+!!!
+
+Hvis du vil følge min konfig kan du skrive følgende:
+```js       
+username Cisco secret Cisco
+```
+
+### line vty
+
+Nu skal vi konfigurere line vty, så vi kan logge ind på routeren via SSH.
+
+Når vi skal konfigurere line vty (Virtual teletype), skal vi ind i [!badge text="Line Configuration Mode" variant="ghost" ](#line-vty), som er en tilstand hvor vi kan lave ændringer på de forskellige virtuelle linjer på routeren.
+
+For at komme ind i [!badge text="Line Configuration Mode" variant="ghost" ](#line-vty), skriver vi `line vty 0 15` og trykker enter.<br>
+`0 15` er de virtuelle linjer som vi vil lave ændringer på.<br>
+`0 - 15` er alle de virtuelle linjer på routeren.<br>
+
+Når du er i [!badge text="Line Configuration Mode" variant="ghost" ](#line-vty), så ser prompten sådan her ud:
+```js
+R1(config-line)#
+```
+Som standart er der `transport input all` på.
+
+Det skal vi lige have ændret, så vi skriver `transport input ssh` og trykker enter.<br>
+Dette gør at vi kun kan logge ind på routeren via SSH, og ikke telnet.<br>
+
+Vi skal også fortælle routeren at vi vil bruge vores lokale bruger til at logge ind med, så vi skriver `login local` og trykker enter.<br>
+Vi skal også have en adgangskode på, så vi skriver `secret <adgangskode>` og trykker enter.<br>
+
+Vi kommer ikke til at skulle bruge koden.<br>
+Men den er nødvendig for at vi kan logge ind på routeren, med SSH<br>
+
+Vi skal også ind på line con 0, så vi skriver `line con 0` og trykker enter.<br>
+`con` står for console, og det er den fysiske port på routeren.<br>
+`0` er port nummeret.<br>
+
+Her skal vi også sætte `login local` på og en adgangskode, så vi skriver `login local` og trykker enter.<br>
+
+Nu skriver vi `secret <adgangskode>` og trykker enter.<br>
+
+Vi skal også ind på line aux 0, så vi skriver `line aux 0` og trykker enter.<br>
+`aux` står for auxiliary, og det er også en fysiske port på routeren.<br>
+Den emulerer en modem forbindelse.<br>
+`0` er port nummeret.<br>
+
+Her skal vi også sætte `login local` på og en adgangskode, så vi skriver `login local` og trykker enter.<br>
+
+Vi skriver også `secret <adgangskode>` igen, og trykker enter.<br>
+
+Her er alt den samlede konfiguration vi har lavet på routeren:
+
+```js
+hostname R1
+!
+interface fastethernet 0/0
+ ip address 172.16.0.1 255.255.255.0
+ no shutdown
+!
+ip domain-name test.dk
+crypto key generate rsa general-keys modulus 1024 
+ip ssh version 2
+username Cisco secret Cisco
+enable secret Cisco
+!
+line vty 0 15
+ transport input ssh
+ login local
+ secret Cisco
+!
+line con 0
+ login local
+ secret Cisco
+!
+line aux 0
+ login local
+ secret Cisco
+```
+
+
+
+
+
+

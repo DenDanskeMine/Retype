@@ -1,6 +1,6 @@
 ---
 label: BGP
-icon: globe
+icon: cloud
 
 ---
 

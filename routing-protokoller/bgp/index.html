@@ -9,36 +9,34 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Hjem</title>
-    <meta name="title" content="Hjem">
-    <meta name="description" content="Vi er en dokumentations hjemmeside som er lavet for at få nem og hurtig adgang til informationer omkring netværk og netværksudstyr.">
+    <title>BGP (Border Gateway Protocol)</title>
+    <meta name="title" content="BGP (Border Gateway Protocol)">
+    <meta name="description" content="BGP er en routingprotokol, der bruges til at styre routing og udveksling af ruteinformation på internettet og i store private netværk.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://netdev.online/">
+    <link rel="canonical" href="https://netdev.online/routing-protokoller/bgp/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://netdev.online/">
-    <meta property="og:title" content="Hjem">
-    <meta property="og:description" content="Vi er en dokumentations hjemmeside som er lavet for at få nem og hurtig adgang til informationer omkring netværk og netværksudstyr.">
-    <meta property="og:image" content="https://netdev.online/img/hero-black-slug.png">
+    <meta property="og:url" content="https://netdev.online/routing-protokoller/bgp/">
+    <meta property="og:title" content="BGP (Border Gateway Protocol)">
+    <meta property="og:description" content="BGP er en routingprotokol, der bruges til at styre routing og udveksling af ruteinformation på internettet og i store private netværk.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://netdev.online/">
-    <meta property="twitter:title" content="Hjem">
-    <meta property="twitter:description" content="Vi er en dokumentations hjemmeside som er lavet for at få nem og hurtig adgang til informationer omkring netværk og netværksudstyr.">
-    <meta property="twitter:image" content="https://netdev.online/img/hero-black-slug.png">
+    <meta property="twitter:url" content="https://netdev.online/routing-protokoller/bgp/">
+    <meta property="twitter:title" content="BGP (Border Gateway Protocol)">
+    <meta property="twitter:description" content="BGP er en routingprotokol, der bruges til at styre routing og udveksling af ruteinformation på internettet og i store private netværk.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="resources/css/retype.css?v=3.5.0.748435949774" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.748435949774" rel="stylesheet">
 
-    <script data-cfasync="false" src="resources/js/config.js?v=3.5.0.748435949774" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.5.0.748435949774" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="resources/js/prism.js?v=3.5.0.748435949774" defer></script>
-    <script id="mermaid-js" data-cfasync="false" src="resources/js/mermaid.js?v=3.5.0" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748435949774" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748435949774" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.748435949774" defer></script>
+    <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -53,10 +51,10 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="" class="flex items-center leading-snug text-2xl">
+                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-2xl">
                             <span class="grow-0 shrink-0 overflow-hidden">
-                                <img class="max-h-10 dark:hidden md:inline-block" src="img/logo-04.png">
-                                <img class="max-h-10 hidden dark:inline-block" src="img/logo-01.png">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../img/logo-04.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../img/logo-01.png">
                             </span>
                         </a>
                     </div>
@@ -170,72 +168,161 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="section" class="break-words">
+<doc-anchor-target id="bgp-border-gateway-protocol" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#section">#</doc-anchor-trigger>
-        <span></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#bgp-border-gateway-protocol">#</doc-anchor-trigger>
+        <span>BGP (Border Gateway Protocol)</span>
     </h1>
 </doc-anchor-target>
-<p><figure class="content-center">
-    <img src="img/hero-black-slug.png" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
-<doc-anchor-target id="dansk-dokumentation">
+<p>BGP er en routingprotokol, der bruges til at styre routing og udveksling af ruteinformation på internettet og i store private netværk.</p>
+<center>
+<blockquote>
+<p>eBGP <a href="/routing20protocols/egp/bgp/ebgp.md">klik her</a>  · 
+iBGP <a href="/routing20protocols/egp/bgp/ibgp.md">klik her</a>  </p>
+</blockquote>
+</center>
+<doc-anchor-target id="vigtigste-funktioner">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#dansk-dokumentation">#</doc-anchor-trigger>
-        <span>Dansk Dokumentation</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#vigtigste-funktioner">#</doc-anchor-trigger>
+        <span>Vigtigste funktioner:</span>
     </h2>
 </doc-anchor-target>
-<p>Vi er en dokumentations hjemmeside som er lavet for at få nem og hurtig adgang til informationer omkring netværk og netværksudstyr.</p>
-<p>Samt er målet også at folk der intet ved, kan lære noget omkring netværk og netværksudstyr.</p>
-<p>Guides og dokumentation er skrevet på dansk, da det er det sprog vi bedst kan.</p>
-<p>Nedenfor kan du se de forskellige kategorier vi har lavet guides til.</p>
-<doc-anchor-target id="eksemple-på-en-guide">
+<ul>
+<li><p><strong>Routingprotokol:</strong> BGP er en path-vector-protokol, der bestemmer de bedste ruter til dataoverførsel.</p>
+</li>
+<li><p><strong>Autonome systemer (AS):</strong> Internettet er opdelt i autonome systemer, og BGP bruges til at udveksle ruteinformation mellem disse.</p>
+</li>
+<li><p><strong>Politikbaseret routing:</strong> BGP tillader netværksadministratorer at implementere politikker for at styre rutevalg.</p>
+</li>
+<li><p><strong>Stabilitet og pålidelighed:</strong> BGP er designet til at være meget stabil og pålidelig.</p>
+</li>
+<li><p><strong>Peer-til-peer-forbindelser:</strong> BGP bruger TCP-baserede peer-til-peer-forbindelser mellem routere.</p>
+</li>
+<li><p><strong>Internetudbydere og store organisationer:</strong> BGP er afgørende for internetudbydere og store organisationer til styring af deres netværk og ruteopdateringer.</p>
+</li>
+</ul>
+<p>BGP spiller en central rolle i at sikre effektiv og pålidelig dataoverførsel på internettet.</p>
+<doc-anchor-target id="autonome-systemer-as">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#eksemple-på-en-guide">#</doc-anchor-trigger>
-        <span>Eksemple på en guide</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#autonome-systemer-as">#</doc-anchor-trigger>
+        <span>Autonome systemer (AS):</span>
     </h3>
 </doc-anchor-target>
-<p>Her er en simpel konfiguration af en <a href="router.md" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-600 bg-white border border-gray-300 dark:text-dark-350 dark:border-dark-450 dark:bg-dark-450 hover:bg-gray-200 dark:hover:bg-dark-400 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
-    <span>router</span>
-</a> og en <a href="router.md" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-600 bg-white border border-gray-300 dark:text-dark-350 dark:border-dark-450 dark:bg-dark-450 hover:bg-gray-200 dark:hover:bg-dark-400 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
-    <span>switch</span>
-</a>.</p>
+<p>Hele BGP er bygget op på de her Autonome systemer (autonomous systems).
+Man kan se et AS, som en selvstændig sky, eller udbyder.</p>
+<p><strong>eBGP:</strong> Dette er en del af BGP, hvor internetudbydere udveksler routingtabeller med hinanden. Dette gør det muligt for dem at sende trafik på tværs af deres AS&#x27;er og til andre AS&#x27;er på internettet. eBGP spiller en afgørende rolle i at sikre, at internettrafikken når sin destination effektivt.</p>
+<p><strong>iBGP:</strong> Det er stort set det samme som eBGP, men iBGP bliver brugt internt i skyen. (i samme AS)<br></p>
+<doc-anchor-target id="ibgp">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ibgp">#</doc-anchor-trigger>
+        <span>iBGP:</span>
+    </h3>
+</doc-anchor-target>
+<p>Lig mærke til at alle har det samme AS nummer, og at remote-as er det samme som routers AS.</p>
 <doc-tabs>
 <doc-tab v-cloak id="r1">
 <template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R1</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">interface fastethernet 0/0
- ip address 172.16.0.1 255.255.255.0
- no shutdown
-</code></pre>
+<pre class="language-javascript"><code v-pre class="language-javascript">router bgp 3292
+neighbor 10.10.10.1 remote-as 3292</code></pre>
 </doc-codeblock></div>
-<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">flowchart LR
-	1(((&quot;&amp;nbsp;R1&amp;nbsp;&quot;))) --- 2[&quot;SW1&quot;]
-	style 1 fill:#99e2b4,stroke-width: 0px
-	style 2 stroke-width: 0px</pre></div>
-<p><a href="/starterguide/starter-guide" class="no-link inline-flex align-middle items-center font-medium cursor-pointer transition-colors duration-200 ease-out focus:outline-none bg-blue-500 hover:bg-blue-700 text-white px-4 h-10 text-sm rounded-md">
-    <span>Gå til guide</span>
-</a></p>
+<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">flowchart
+	subgraph 840217[&quot;AS 3292&quot;]
+		1(((&quot;&amp;nbsp;R1&amp;nbsp;&quot;))) ---|&quot;iBGP&quot;| 2(((&quot;&amp;nbsp;R2&amp;nbsp;&quot;)))
+		style 1 fill:#99e2b4,stroke-width: 0px
+		style 2 stroke-width: 0px
+	end
+	style 840217 fill:#ffff,stroke-dasharray: 5,stroke:#000000,color:#fffffl
+</pre></div>
 </doc-tab>
-<doc-tab v-cloak id="sw1">
-<template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M7.72 21.78a.75.75 0 0 0 1.06-1.06L5.56 17.5h14.69a.75.75 0 0 0 0-1.5H5.56l3.22-3.22a.75.75 0 1 0-1.06-1.06l-4.5 4.5a.75.75 0 0 0 0 1.06l4.5 4.5Zm8.56-9.5a.75.75 0 1 1-1.06-1.06L18.44 8H3.75a.75.75 0 0 1 0-1.5h14.69l-3.22-3.22a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5Z"/></g></g></svg> SW1</template>
+<doc-tab v-cloak id="r2">
+<template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R2</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">interface vlan 1
- ip address 172.16.0.2 255.255.255.0
- no shutdown
-</code></pre>
+<pre class="language-javascript"><code v-pre class="language-javascript">router bgp 3292
+neighbor 10.10.10.2 remote-as 3292</code></pre>
 </doc-codeblock></div>
-<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">flowchart LR
-	1(((&quot;&amp;nbsp;R1&amp;nbsp;&quot;))) --- 2[&quot;SW1&quot;]
-	style 1 stroke-width: 0px
-	style 2 fill:#99e2b4,stroke-width: 0px</pre></div>
-<p><a href="/starterguide/starter-guide" class="no-link inline-flex align-middle items-center font-medium cursor-pointer transition-colors duration-200 ease-out focus:outline-none bg-blue-500 hover:bg-blue-700 text-white px-4 h-10 text-sm rounded-md">
-    <span>Gå til guide</span>
-</a></p>
+<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">flowchart
+	subgraph 840217[&quot;AS 3292&quot;]
+		1(((&quot;&amp;nbsp;R1&amp;nbsp;&quot;))) ---|&quot;iBGP&quot;| 2(((&quot;&amp;nbsp;R2&amp;nbsp;&quot;)))
+		style 1 stroke-width: 0px
+		style 2 fill:#99e2b4,stroke-width: 0px
+	end
+	style 840217 fill:#ffff,stroke-dasharray: 5,stroke:#000000,color:#fffffl
+</pre></div>
 </doc-tab>
 </doc-tabs>
+<doc-anchor-target id="ebgp">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ebgp">#</doc-anchor-trigger>
+        <span>eBGP:</span>
+    </h3>
+</doc-anchor-target>
+<p>Her kan du se at de har forskellige AS numre, og at remote-as er den anden routers AS.</p>
+<doc-tabs>
+<doc-tab v-cloak id="r1">
+<template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R1</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">router bgp 3292
+neighbor 10.10.10.1 remote-as 209424</code></pre>
+</doc-codeblock></div>
+<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">flowchart LR
+	1(((&quot;&amp;nbsp;R1&amp;nbsp;&quot;))) ---|&quot;eBGP&quot;| 2(((&quot;&amp;nbsp;R2&amp;nbsp;&quot;)))
+	style 1 fill:#99e2b4,stroke-width: 0px
+	style 2 stroke-width: 0px
+	subgraph 152374[&quot;3292&quot;]
+		1
+	end
+	style 152374 fill:#ffff,stroke-dasharray: 5,stroke:#000000,color:#fffffl
+	subgraph 840217[&quot;209424&quot;]
+		2
+	end
+	style 840217 fill:#ffff,stroke-dasharray: 5,stroke:#000000,color:#fffffl</pre></div>
+</doc-tab>
+<doc-tab v-cloak id="r2">
+<template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R2</template>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">router bgp 209424
+neighbor 20.20.20.1 remote-as 3292</code></pre>
+</doc-codeblock></div>
+<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">flowchart LR
+	1(((&quot;&amp;nbsp;R1&amp;nbsp;&quot;))) ---|&quot;eBGP&quot;| 2(((&quot;&amp;nbsp;R2&amp;nbsp;&quot;)))
+	style 1 stroke-width: 0px
+	style 2 fill:#99e2b4,stroke-width: 0px
+	subgraph 152374[&quot;3292&quot;]
+		1
+	end
+	style 152374 fill:#ffff,stroke-dasharray: 5,stroke:#000000,color:#fffffl
+	subgraph 840217[&quot;209424&quot;]
+		2
+	end
+	style 840217 fill:#ffff,stroke-dasharray: 5,stroke:#000000,color:#fffffl</pre></div>
+</doc-tab>
+</doc-tabs>
+<doc-anchor-target id="sikkerhed">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sikkerhed">#</doc-anchor-trigger>
+        <span>Sikkerhed</span>
+    </h2>
+</doc-anchor-target>
+<p>BGP (Border Gateway Protocol) er ikke designet til at tillade automatisk tilføjelse af routere, primært af hensyn til internettets sikkerhed og stabilitet.</p>
+<ol>
+<li><p><strong>Kontrolleret tilføjelse:</strong> BGP er primært brugt af internetudbydere (ISPer) og store organisationer til at styre internetrouting. De har omhyggeligt planlagte procedurer for tilføjelse af nye routere og annoncering af nye netværkspræfikser. Denne kontrol er afgørende for at undgå uautoriseret og potentielt skadelig trafikdirigering.</p>
+</li>
+<li><p><strong>Politikbaseret routing:</strong> BGP gør det muligt for netværksadministratorer at implementere politikker for at styre, hvordan trafik dirigeres gennem deres netværk.</p>
+</li>
+<li><p><strong>Beskyttelse mod fejl og angreb:</strong> Internetrouting er sårbar over for fejl og målrettede angreb. Ved at kræve manuel konfiguration og validering af nye routere og annoncerede ruter kan netværksadministratorer minimere risikoen for utilsigtede fejl og ondsindede handlinger.</p>
+</li>
+<li><p><strong>Stabilitet og konvergens:</strong> BGP er designet til at opretholde internettets stabilitet, og det tager hensyn til konvergenshastighed og beslutningsprocesser. Automatisk tilføjelse af routere kunne føre til hurtige og potentielt skadelige ændringer i routingtabeller, der kan påvirke internettets drift og føre til ustabilitet.</p>
+</li>
+</ol>
+<p>I det store billede giver BGP&#x27;s manuelle konfiguration og kontrollerede proces netværksadministratorer mulighed for at opretholde kontrol over deres egne netværk og beskytte internettets integritet og pålidelighed.</p>
+<doc-anchor-target id="ebgp-1">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ebgp-1">#</doc-anchor-trigger>
+        <span>eBGP</span>
+    </h2>
+</doc-anchor-target>
+<p>eBGP er en del af BGP, hvor internetudbydere udveksler routingtabeller med hinanden. Dette gør det muligt for dem at sende trafik på tværs af deres AS&#x27;er og til andre AS&#x27;er på internettet. eBGP spiller en afgørende rolle i at sikre, at internettrafikken når sin destination effektivt.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -245,13 +332,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Hjem</span>
+                                            </span>
+                                        </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="routing-protokoller/bgp/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../routing-protokoller/routing/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">BGP</span>
+                                                <span class="block mt-1">Routing</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -295,6 +389,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Hjem", isRoot: true, level: 0, icon: "file", hasPrism: true, hasMermaid: true, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "BGP", level: 2, icon: "file", hasPrism: true, hasMermaid: true, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

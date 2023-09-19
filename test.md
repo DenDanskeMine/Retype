@@ -43,5 +43,16 @@ Det vi lige har konfigureret er et [!badge text="LAN" variant="ghost" ](/test.md
 konfiguration af et LAN er meget simpelt, da det bare er at sætte en ip-adresse på interfacet man ønsker at bruge.
 
 
+[!ref target="news2" text="Retype"](https://retype.com/)
+[!button variant="success" text="Primary"]
+[!badge variant="warning" text="Info"]
 
-```js 
+||| Title with emoji :thumbsup:
+
+A column title with the [emoji](emoji.md) `:thumbsup:`.
+
+||| Title with icon :icon-check-circle:
+
+A column title with the [icon](icon.md) `:icon-check-circle:`.
+
+|||

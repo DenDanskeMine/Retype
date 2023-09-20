@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.748540149420">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.748541467645">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,13 +32,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="resources/css/retype.css?v=3.5.0.748540149420" rel="stylesheet">
+    <link href="resources/css/retype.css?v=3.5.0.748541467645" rel="stylesheet">
 
-    <script data-cfasync="false" src="resources/js/config.js?v=3.5.0.748540149420" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="resources/js/config.js?v=3.5.0.748541467645" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.5.0.748540149420" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="resources/js/prism.js?v=3.5.0.748540149420" defer></script>
-    <script id="mermaid-js" data-cfasync="false" src="resources/js/mermaid.js?v=3.5.0" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.5.0.748541467645" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -190,51 +188,48 @@
 <p>Vi er en dokumentations hjemmeside som er lavet for at få nem og hurtig adgang til informationer omkring netværk og netværksudstyr.</p>
 <p>Samt er målet også at folk der intet ved, kan lære noget omkring netværk og netværksudstyr.</p>
 <p>Guides og dokumentation er skrevet på dansk, da det er det sprog vi bedst kan.</p>
-<p>Nedenfor kan du se de forskellige kategorier vi har lavet guides til.</p>
-<doc-anchor-target id="eksemple-på-en-guide">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#eksemple-på-en-guide">#</doc-anchor-trigger>
-        <span>Eksemple på en guide</span>
-    </h3>
-</doc-anchor-target>
-<p>Her er en simpel konfiguration af en <a href="router.md" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-600 bg-white border border-gray-300 dark:text-dark-350 dark:border-dark-450 dark:bg-dark-450 hover:bg-gray-200 dark:hover:bg-dark-400 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
-    <span>router</span>
-</a> og en <a href="router.md" class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-600 bg-white border border-gray-300 dark:text-dark-350 dark:border-dark-450 dark:bg-dark-450 hover:bg-gray-200 dark:hover:bg-dark-400 transition-colors duration-200 ease-out h-6 px-2 text-xs rounded-md">
-    <span>switch</span>
-</a>.</p>
-<doc-tabs>
-<doc-tab v-cloak id="r1">
-<template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R1</template>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">interface fastethernet 0/0
- ip address 172.16.0.1 255.255.255.0
- no shutdown
-</code></pre>
-</doc-codeblock></div>
-<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">flowchart LR
-	1(((&quot;&amp;nbsp;R1&amp;nbsp;&quot;))) --- 2[&quot;SW1&quot;]
-	style 1 fill:#99e2b4,stroke-width: 0px</pre></div>
-<p><a href="/starterguide/starter-guide" class="no-link inline-flex align-middle items-center font-medium cursor-pointer transition-colors duration-200 ease-out focus:outline-none bg-blue-500 hover:bg-blue-700 text-white px-4 h-10 text-sm rounded-md">
-    <span>Gå til guide</span>
-</a></p>
-</doc-tab>
-<doc-tab v-cloak id="sw1">
-<template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M7.72 21.78a.75.75 0 0 0 1.06-1.06L5.56 17.5h14.69a.75.75 0 0 0 0-1.5H5.56l3.22-3.22a.75.75 0 1 0-1.06-1.06l-4.5 4.5a.75.75 0 0 0 0 1.06l4.5 4.5Zm8.56-9.5a.75.75 0 1 1-1.06-1.06L18.44 8H3.75a.75.75 0 0 1 0-1.5h14.69l-3.22-3.22a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5Z"/></g></g></svg> SW1</template>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">interface vlan 1
- ip address 172.16.0.2 255.255.255.0
- no shutdown
-</code></pre>
-</doc-codeblock></div>
-<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">flowchart LR
-	1(((&quot;&amp;nbsp;R1&amp;nbsp;&quot;))) --- 2[&quot;SW1&quot;]
-	style 1 stroke-width: 0px
-	style 2 fill:#99e2b4,stroke-width: 0px</pre></div>
-<p><a href="/starterguide/starter-guide" class="no-link inline-flex align-middle items-center font-medium cursor-pointer transition-colors duration-200 ease-out focus:outline-none bg-blue-500 hover:bg-blue-700 text-white px-4 h-10 text-sm rounded-md">
-    <span>Gå til guide</span>
-</a></p>
-</doc-tab>
-</doc-tabs>
+<p>Nedenfor kan du se lidt forskellige guides:</p>
+<style>
+    .div {
+        text-align: center;
+        color: #1956AF;
+        border-radius: 10px;
+        background-color: #E1EDFF;
+        border: 1px solid #1956AF;
+        padding-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 48%;
+        float: left;
+        align-items: center;
+    }
+    .div1 {
+        text-align: center;
+        color: #1956AF;
+        border-radius: 10px;
+        background-color: #E1EDFF;
+        border: 1px solid #1956AF;
+        padding-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 31.3%;
+        float: left;
+        align-items: center;
+
+    }
+</style>
+<div class="div"><p><a href="starterguide/starter_guide/"><strong>Basal Router konfiguration</strong></a></p>
+</div>
+<div class="div"><p><a href="starterguide/ospf/"><strong>Basal Switch konfiguration.</strong></a></p>
+</div>
+<div class="div1"><p><a href="starterguide/ospf/"><strong>OSPF LAB.</strong></a></p>
+</div>
+<div class="div1"><p><a href="starterguide/ospf/"><strong>BGP LAB.</strong></a></p>
+</div>
+<div class="div1"><p><a href="starterguide/ospf/"><strong>MPLS LAB.</strong></a></p>
+</div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -247,7 +242,7 @@
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="starterguide/starter-guide/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="starterguide/starter_guide/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
                                                 <span class="block mt-1">Basal router konfiguration</span>
@@ -294,6 +289,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Hjem", isRoot: true, level: 0, icon: "file", hasPrism: true, hasMermaid: true, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Hjem", isRoot: true, level: 0, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

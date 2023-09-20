@@ -56,3 +56,40 @@ flowchart TD
 	2 --- 3((("&nbsp;R1&nbsp;")))
 	style 3 stroke-width: 0px
 ```
++++
+
+## LAB Setup
+
+![](/img/LAB.png) 
+
+### Plan
+
+Vi skal konfigurere OSPF på alle routere, så de kan snakke sammen.
+I dette setup bruger vi et single area, hvilket betyder at alle routere er i samme område. (area 0)
+
+### Konfiguration
+
++++ :icon-x-circle: R1
+```js
+router ospf 1
+ network
+```
+![](/img/LABR1.png) 
++++ :icon-x-circle: R2
+```js
+router ospf 1
+ network
+```
+![](/img/LABR2.png)
++++ :icon-x-circle: R3
+```js
+router ospf 1
+ network
+```
+![](/img/LABR3.png)
++++
+
+
+
+
+

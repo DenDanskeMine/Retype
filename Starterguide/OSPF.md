@@ -81,12 +81,14 @@ Målet er at PC1 kan pinge PC2, og at PC2 kan pinge PC1.
 
 +++ :icon-x-circle: R1
 ```js
+hostname R1
+!
 interface fastethernet 0/0
 ip address 10.10.10.1 255.255.255.252
 no shutdown
 !
 interface fastethernet 0/1
-ip address 172.16.0.2 255.255.255.0
+ip address 172.16.0.1 255.255.255.0
 no shutdown
 !
 router ospf 1
@@ -96,6 +98,8 @@ network 172.16.0.0 0.0.0.255 area 0
 ![](/img/OSPF_R1.png) 
 +++ :icon-x-circle: R2
 ```js
+hostname R2
+!
 interface fastethernet 0/0
 ip address 10.10.10.2 255.255.255.252
 no shutdown
@@ -111,6 +115,8 @@ network 10.10.10.4 0.0.0.3 area 0
 ![](/img/OSPF_R2.png)
 +++ :icon-x-circle: R3
 ```js
+hostname R3
+!
 interface fastethernet 0/0
 ip address 10.10.10.6 255.255.255.252
 no shutdown
@@ -120,13 +126,89 @@ ip address 172.16.1.1 255.255.255.252
 no shutdown
 !
 router ospf 1
-network 10.10.10.0 0.0.0.3 area 0
+network 10.10.10.4 0.0.0.3 area 0
 network 172.16.1.0 0.0.0.255 area 0
 ```
 ![](/img/OSPF_R3.png)
 +++
 
+### Verificering
+
+For at verificere at det virker, kan vi bruge kommandoen `show ip route` på alle routere.
+
+Her ville vi gerne se at alle routere har en rute til de andre routere, og at de har en rute til de to netværk.
 
 
 
++++ :icon-x-circle: R1
+```js #16-17
+R1#show ip route 
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
 
+Gateway of last resort is not set
+
+     10.0.0.0/30 is subnetted, 2 subnets
+C       10.10.10.0 is directly connected, FastEthernet0/0
+O       10.10.10.4 [110/2] via 10.10.10.2, 00:03:42, FastEthernet0/0
+     172.16.0.0/24 is subnetted, 2 subnets
+C       172.16.0.0 is directly connected, FastEthernet0/1
+O       172.16.1.0 [110/3] via 10.10.10.2, 00:00:04, FastEthernet0/0
+```
+På linje 16 og 17 kan vi se at R1 har en rute til de to netværk.<br>
+`C` betyder at det er en directly connected route til PC1s netværk. <br>
+ `O` betyder at der er en OSPF route, over til PC2s netværk.
+ +++ :icon-x-circle: R2
+ ```js #16-17
+ R2#show ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     10.0.0.0/30 is subnetted, 2 subnets
+C       10.10.10.0 is directly connected, FastEthernet0/0
+C       10.10.10.4 is directly connected, FastEthernet0/1
+     172.16.0.0/24 is subnetted, 2 subnets
+O       172.16.0.0 [110/2] via 10.10.10.1, 00:10:20, FastEthernet0/0
+O       172.16.1.0 [110/2] via 10.10.10.6, 00:05:27, FastEthernet0/1
+```
+
+På linje 16 og 17 kan vi se at R1 har en rute til de to netværk via OSPF.<br>
+ `O` betyder at der er en OSPF route, over til PC1 og PC2s netværk.
+
++++ :icon-x-circle: R3
+```js #16-17
+R3#show ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     10.0.0.0/30 is subnetted, 2 subnets
+O       10.10.10.0 [110/2] via 10.10.10.5, 00:12:39, FastEthernet0/0
+C       10.10.10.4 is directly connected, FastEthernet0/0
+     172.16.0.0/24 is subnetted, 2 subnets
+O       172.16.0.0 [110/3] via 10.10.10.5, 00:12:39, FastEthernet0/0
+C       172.16.1.0 is directly connected, FastEthernet0/1
+```
+På linje 16 og 17 kan vi se at R1 har en rute til de to netværk.<br>
+`O` betyder at der er en OSPF route, over til PC1s netværk.<br>
+`C` betyder at det er en directly connected route til PC2s netværk. 
+
+ +++

@@ -80,6 +80,7 @@ Målet er at PC1 kan pinge PC2, og at PC2 kan pinge PC1.
 ### Konfiguration
 
 +++ :icon-x-circle: R1
+ ![](/img/OSPF_R1.png) 
 ```js
 hostname R1
 !
@@ -95,8 +96,8 @@ router ospf 1
 network 10.10.10.0 0.0.0.3 area 0
 network 172.16.0.0 0.0.0.255 area 0
 ```
-![](/img/OSPF_R1.png) 
 +++ :icon-x-circle: R2
+ ![](/img/OSPF_R2.png)
 ```js
 hostname R2
 !
@@ -112,8 +113,8 @@ router ospf 1
 network 10.10.10.0 0.0.0.3 area 0
 network 10.10.10.4 0.0.0.3 area 0
 ```
-![](/img/OSPF_R2.png)
 +++ :icon-x-circle: R3
+ ![](/img/OSPF_R3.png)
 ```js
 hostname R3
 !
@@ -129,10 +130,10 @@ router ospf 1
 network 10.10.10.4 0.0.0.3 area 0
 network 172.16.1.0 0.0.0.255 area 0
 ```
-![](/img/OSPF_R3.png)
 +++
 
-### Verificering
+### show ip route
+
 
 For at verificere at det virker, kan vi bruge kommandoen `show ip route` på alle routere.
 
@@ -141,6 +142,7 @@ Her ville vi gerne se at alle routere har en rute til de andre routere, og at de
 
 
 +++ :icon-x-circle: R1
+ ![](/img/OSPF_R1.png)
 ```js #16-17
 R1#show ip route 
 Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
@@ -164,6 +166,7 @@ På linje 16 og 17 kan vi se at R1 har en rute til de to netværk.<br>
 `C` betyder at det er en directly connected route til PC1s netværk. <br>
  `O` betyder at der er en OSPF route, over til PC2s netværk.
  +++ :icon-x-circle: R2
+ ![](/img/OSPF_R2.png)
  ```js #16-17
  R2#show ip route
 Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
@@ -186,8 +189,8 @@ O       172.16.1.0 [110/2] via 10.10.10.6, 00:05:27, FastEthernet0/1
 
 På linje 16 og 17 kan vi se at R1 har en rute til de to netværk via OSPF.<br>
  `O` betyder at der er en OSPF route, over til PC1 og PC2s netværk.
-
 +++ :icon-x-circle: R3
+ ![](/img/OSPF_R3.png) 
 ```js #16-17
 R3#show ip route
 Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
@@ -210,5 +213,44 @@ C       172.16.1.0 is directly connected, FastEthernet0/1
 På linje 16 og 17 kan vi se at R1 har en rute til de to netværk.<br>
 `O` betyder at der er en OSPF route, over til PC1s netværk.<br>
 `C` betyder at det er en directly connected route til PC2s netværk. 
+
+ +++
+
+ I routing tabellen kan vi se [110/2] og [110/3], som er omkostningen til de to netværk.<br>
+ `110` er OSPF cost, og `2` og `3` er omkostningen til de to netværk.<br>
+
+### show ip ospf neighbor
+
+For at verificere at OSPF virker, kan vi også bruge kommandoen `show ip ospf neighbor` på alle routere.
+
+Denne kommnado vil vise os hvilke naboer vi har, og hvilken state de er i.
+
+
++++ :icon-x-circle: R1
+ ![](/img/OSPF_R1.png) 
+
+```js #16-17
+R1#show ip ospf neighbor
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+10.10.10.5        1   FULL/BDR        00:00:36    10.10.10.2      FastEthernet0/0
+```
+Her kan vi se at R1 har et naboskab med R2, og at de er i state `FULL/BDR`.<br>
+ +++ :icon-x-circle: R2
+  ![](/img/OSPF_R2.png) 
+ ```js #16-17
+ R2#show ip ospf neighbor
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+172.16.0.1        1   FULL/DR         00:00:35    10.10.10.1      FastEthernet0/0
+172.16.1.1        1   FULL/DR         00:00:34    10.10.10.6      FastEthernet0/1
+```
+Her kan vi se at R2 har et naboskab med R1 og R3, og at de er i state `FULL/DR`.<br>
++++ :icon-x-circle: R3
+ ![](/img/OSPF_R3.png) 
+```js #16-17
+R3#show ip ospf neighbor
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+10.10.10.5        1   FULL/BDR        00:00:31    10.10.10.5      FastEthernet0/0
+```
+Her kan vi se at R3 har et naboskab med R2, og at de er i state `FULL/BDR`.<br>
 
  +++

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.748533647935">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.748535335149">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.748533647935" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.748535335149" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748533647935" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748535335149" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748533647935" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.748533647935" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748535335149" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.748535335149" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
 </head>
 <body>
@@ -266,12 +266,14 @@ Målet er at PC1 kan pinge PC2, og at PC2 kan pinge PC1.</p>
 <doc-tab v-cloak id="r1">
 <template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R1</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">interface fastethernet 0/0
+<pre class="language-javascript"><code v-pre class="language-javascript">hostname R1
+!
+interface fastethernet 0/0
 ip address 10.10.10.1 255.255.255.252
 no shutdown
 !
 interface fastethernet 0/1
-ip address 172.16.0.2 255.255.255.0
+ip address 172.16.0.1 255.255.255.0
 no shutdown
 !
 router ospf 1
@@ -287,7 +289,9 @@ network 172.16.0.0 0.0.0.255 area 0</code></pre>
 <doc-tab v-cloak id="r2">
 <template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R2</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">interface fastethernet 0/0
+<pre class="language-javascript"><code v-pre class="language-javascript">hostname R2
+!
+interface fastethernet 0/0
 ip address 10.10.10.2 255.255.255.252
 no shutdown
 !
@@ -308,7 +312,9 @@ network 10.10.10.4 0.0.0.3 area 0</code></pre>
 <doc-tab v-cloak id="r3">
 <template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R3</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">interface fastethernet 0/0
+<pre class="language-javascript"><code v-pre class="language-javascript">hostname R3
+!
+interface fastethernet 0/0
 ip address 10.10.10.6 255.255.255.252
 no shutdown
 !
@@ -317,7 +323,7 @@ ip address 172.16.1.1 255.255.255.252
 no shutdown
 !
 router ospf 1
-network 10.10.10.0 0.0.0.3 area 0
+network 10.10.10.4 0.0.0.3 area 0
 network 172.16.1.0 0.0.0.255 area 0</code></pre>
 </doc-codeblock></div>
 <p><figure class="content-center">
@@ -325,6 +331,90 @@ network 172.16.1.0 0.0.0.255 area 0</code></pre>
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
+</doc-tab>
+</doc-tabs>
+<doc-anchor-target id="verificering">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#verificering">#</doc-anchor-trigger>
+        <span>Verificering</span>
+    </h3>
+</doc-anchor-target>
+<p>For at verificere at det virker, kan vi bruge kommandoen <code v-pre>show ip route</code> på alle routere.</p>
+<p>Her ville vi gerne se at alle routere har en rute til de andre routere, og at de har en rute til de to netværk.</p>
+<doc-tabs>
+<doc-tab v-cloak id="r1">
+<template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R1</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-javascript" data-line="16-17"><code v-pre class="language-javascript">R1#show ip route 
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     10.0.0.0/30 is subnetted, 2 subnets
+C       10.10.10.0 is directly connected, FastEthernet0/0
+O       10.10.10.4 [110/2] via 10.10.10.2, 00:03:42, FastEthernet0/0
+     172.16.0.0/24 is subnetted, 2 subnets
+C       172.16.0.0 is directly connected, FastEthernet0/1
+O       172.16.1.0 [110/3] via 10.10.10.2, 00:00:04, FastEthernet0/0</code></pre>
+</doc-codeblock></div>
+<p>På linje 16 og 17 kan vi se at R1 har en rute til de to netværk.<br>
+<code v-pre>C</code> betyder at det er en directly connected route til PC1s netværk. <br>
+<code v-pre>O</code> betyder at der er en OSPF route, over til PC2s netværk.</p>
+</doc-tab>
+<doc-tab v-cloak id="r2">
+<template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R2</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-javascript" data-line="16-17"><code v-pre class="language-javascript">R2#show ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+      D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+      N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+      E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+      i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+      * - candidate default, U - per-user static route, o - ODR
+      P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+    10.0.0.0/30 is subnetted, 2 subnets
+C       10.10.10.0 is directly connected, FastEthernet0/0
+C       10.10.10.4 is directly connected, FastEthernet0/1
+    172.16.0.0/24 is subnetted, 2 subnets
+O       172.16.0.0 [110/2] via 10.10.10.1, 00:10:20, FastEthernet0/0
+O       172.16.1.0 [110/2] via 10.10.10.6, 00:05:27, FastEthernet0/1</code></pre>
+</doc-codeblock></div>
+<p>På linje 16 og 17 kan vi se at R1 har en rute til de to netværk via OSPF.<br>
+<code v-pre>O</code> betyder at der er en OSPF route, over til PC1 og PC2s netværk.</p>
+</doc-tab>
+<doc-tab v-cloak id="r3">
+<template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R3</template>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-javascript" data-line="16-17"><code v-pre class="language-javascript">R3#show ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     10.0.0.0/30 is subnetted, 2 subnets
+O       10.10.10.0 [110/2] via 10.10.10.5, 00:12:39, FastEthernet0/0
+C       10.10.10.4 is directly connected, FastEthernet0/0
+     172.16.0.0/24 is subnetted, 2 subnets
+O       172.16.0.0 [110/3] via 10.10.10.5, 00:12:39, FastEthernet0/0
+C       172.16.1.0 is directly connected, FastEthernet0/1</code></pre>
+</doc-codeblock></div>
+<p>På linje 16 og 17 kan vi se at R1 har en rute til de to netværk.<br>
+<code v-pre>O</code> betyder at der er en OSPF route, over til PC1s netværk.<br>
+<code v-pre>C</code> betyder at det er en directly connected route til PC2s netværk.</p>
 </doc-tab>
 </doc-tabs>
 

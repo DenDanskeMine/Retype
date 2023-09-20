@@ -58,14 +58,24 @@ flowchart TD
 ```
 +++
 
+Så det vil altså sige at R1 ser R2 og R3 som naboer, og R2 ser R1 og R3 som naboer osv.
+
+Hver router har en [!badge text="LSDB" variant="ghost" ] (Link State Database), som er en liste over alle naboer og deres omkostninger.
+
+Denne dtabase bliver formet af [!badge text="LSAs" variant="ghost" ] (Link State Advertisements), som er pakker der bliver sendt ud til alle naboer, og indeholder information omkring routeren der sender pakken.
+
+
 ## LAB Setup
 
-![](/img/LAB.png) 
+![](/img/OSPF.png) 
 
 ### Plan
 
-Vi skal konfigurere OSPF på alle routere, så de kan snakke sammen.
-I dette setup bruger vi et single area, hvilket betyder at alle routere er i samme område. (area 0)
+Vi skal konfigurere OSPF på alle routere, så de kan snakke sammen.<br>
+I dette LAB bruger vi et single area, som er area 0.
+
+Når vi er færsige med at konfigurere, skal vi verificere at det virker.<br>
+Målet er at PC1 kan pinge PC2, og at PC2 kan pinge PC1.
 
 ### Konfiguration
 
@@ -74,19 +84,19 @@ I dette setup bruger vi et single area, hvilket betyder at alle routere er i sam
 router ospf 1
  network
 ```
-![](/img/LABR1.png) 
+![](/img/OSPF_R1.png) 
 +++ :icon-x-circle: R2
 ```js
 router ospf 1
  network
 ```
-![](/img/LABR2.png)
+![](/img/OSPF_R2.png)
 +++ :icon-x-circle: R3
 ```js
 router ospf 1
  network
 ```
-![](/img/LABR3.png)
+![](/img/OSPF_R3.png)
 +++
 
 

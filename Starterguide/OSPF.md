@@ -81,20 +81,47 @@ Målet er at PC1 kan pinge PC2, og at PC2 kan pinge PC1.
 
 +++ :icon-x-circle: R1
 ```js
+interface fastethernet 0/0
+ip address 10.10.10.1 255.255.255.252
+no shutdown
+!
+interface fastethernet 0/1
+ip address 172.16.0.2 255.255.255.0
+no shutdown
+!
 router ospf 1
- network
+network 10.10.10.0 0.0.0.3 area 0
+network 172.16.0.0 0.0.0.255 area 0
 ```
 ![](/img/OSPF_R1.png) 
 +++ :icon-x-circle: R2
 ```js
+interface fastethernet 0/0
+ip address 10.10.10.2 255.255.255.252
+no shutdown
+!
+interface fastethernet 0/1
+ip address 10.10.10.5 255.255.255.252
+no shutdown
+!
 router ospf 1
- network
+network 10.10.10.0 0.0.0.3 area 0
+network 10.10.10.4 0.0.0.3 area 0
 ```
 ![](/img/OSPF_R2.png)
 +++ :icon-x-circle: R3
 ```js
+interface fastethernet 0/0
+ip address 10.10.10.6 255.255.255.252
+no shutdown
+!
+interface fastethernet 0/1
+ip address 172.16.1.1 255.255.255.252
+no shutdown
+!
 router ospf 1
- network
+network 10.10.10.0 0.0.0.3 area 0
+network 172.16.1.0 0.0.0.255 area 0
 ```
 ![](/img/OSPF_R3.png)
 +++

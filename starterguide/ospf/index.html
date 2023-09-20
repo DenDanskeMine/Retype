@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.748532034215">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.748533177697">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -21,23 +21,23 @@
     <meta property="og:url" content="https://netdev.online/starterguide/ospf/">
     <meta property="og:title" content="OSPF">
     <meta property="og:description" content="OSPF er en (Interior Gateway Protocol), som bruges til dynamisk routing.">
-    <meta property="og:image" content="https://netdev.online/img/lab.png">
+    <meta property="og:image" content="https://netdev.online/img/ospf.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://netdev.online/starterguide/ospf/">
     <meta property="twitter:title" content="OSPF">
     <meta property="twitter:description" content="OSPF er en (Interior Gateway Protocol), som bruges til dynamisk routing.">
-    <meta property="twitter:image" content="https://netdev.online/img/lab.png">
+    <meta property="twitter:image" content="https://netdev.online/img/ospf.png">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.748532034215" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.748533177697" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748532034215" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748533177697" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748532034215" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.748532034215" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748533177697" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.748533177697" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
 </head>
 <body>
@@ -228,6 +228,13 @@ Her er et viruelt eksempel på det:</p>
 	style 3 stroke-width: 0px</pre></div>
 </doc-tab>
 </doc-tabs>
+<p>Så det vil altså sige at R1 ser R2 og R3 som naboer, og R2 ser R1 og R3 som naboer osv.</p>
+<p>Hver router har en <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-600 bg-white border border-gray-300 dark:text-dark-350 dark:border-dark-450 dark:bg-dark-450 h-6 px-2 text-xs rounded-md">
+    <span>LSDB</span>
+</span> (Link State Database), som er en liste over alle naboer og deres omkostninger.</p>
+<p>Denne dtabase bliver formet af <span class="no-link inline-flex align-middle items-center justify-center font-medium leading-none whitespace-nowrap text-gray-600 bg-white border border-gray-300 dark:text-dark-350 dark:border-dark-450 dark:bg-dark-450 h-6 px-2 text-xs rounded-md">
+    <span>LSAs</span>
+</span> (Link State Advertisements), som er pakker der bliver sendt ud til alle naboer, og indeholder information omkring routeren der sender pakken.</p>
 <doc-anchor-target id="lab-setup">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#lab-setup">#</doc-anchor-trigger>
@@ -235,7 +242,7 @@ Her er et viruelt eksempel på det:</p>
     </h2>
 </doc-anchor-target>
 <p><figure class="content-center">
-    <img src="../../img/lab.png" alt="">
+    <img src="../../img/ospf.png" alt="">
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
@@ -245,8 +252,10 @@ Her er et viruelt eksempel på det:</p>
         <span>Plan</span>
     </h3>
 </doc-anchor-target>
-<p>Vi skal konfigurere OSPF på alle routere, så de kan snakke sammen.
-I dette setup bruger vi et single area, hvilket betyder at alle routere er i samme område. (area 0)</p>
+<p>Vi skal konfigurere OSPF på alle routere, så de kan snakke sammen.<br>
+I dette LAB bruger vi et single area, som er area 0.</p>
+<p>Når vi er færsige med at konfigurere, skal vi verificere at det virker.<br>
+Målet er at PC1 kan pinge PC2, og at PC2 kan pinge PC1.</p>
 <doc-anchor-target id="konfiguration">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#konfiguration">#</doc-anchor-trigger>
@@ -261,7 +270,7 @@ I dette setup bruger vi et single area, hvilket betyder at alle routere er i sam
  network</code></pre>
 </doc-codeblock></div>
 <p><figure class="content-center">
-    <img src="../../img/labr1.png" alt="">
+    <img src="../../img/ospf_r1.png" alt="">
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
@@ -273,7 +282,7 @@ I dette setup bruger vi et single area, hvilket betyder at alle routere er i sam
  network</code></pre>
 </doc-codeblock></div>
 <p><figure class="content-center">
-    <img src="../../img/labr2.png" alt="">
+    <img src="../../img/ospf_r2.png" alt="">
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
@@ -285,7 +294,7 @@ I dette setup bruger vi et single area, hvilket betyder at alle routere er i sam
  network</code></pre>
 </doc-codeblock></div>
 <p><figure class="content-center">
-    <img src="../../img/labr3.png" alt="">
+    <img src="../../img/ospf_r3.png" alt="">
     <figcaption class="caption"></figcaption>
 </figure>
 </p>

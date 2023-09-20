@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.748533449177">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.748533647935">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.748533449177" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.748533647935" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748533449177" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748533647935" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748533449177" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.748533449177" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748533647935" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.748533647935" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
 </head>
 <body>
@@ -266,8 +266,17 @@ Målet er at PC1 kan pinge PC2, og at PC2 kan pinge PC1.</p>
 <doc-tab v-cloak id="r1">
 <template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R1</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">router ospf 1
- network</code></pre>
+<pre class="language-javascript"><code v-pre class="language-javascript">interface fastethernet 0/0
+ip address 10.10.10.1 255.255.255.252
+no shutdown
+!
+interface fastethernet 0/1
+ip address 172.16.0.2 255.255.255.0
+no shutdown
+!
+router ospf 1
+network 10.10.10.0 0.0.0.3 area 0
+network 172.16.0.0 0.0.0.255 area 0</code></pre>
 </doc-codeblock></div>
 <p><figure class="content-center">
     <img src="../../img/ospf_r1.png" alt="">
@@ -278,8 +287,17 @@ Målet er at PC1 kan pinge PC2, og at PC2 kan pinge PC1.</p>
 <doc-tab v-cloak id="r2">
 <template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R2</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">router ospf 1
- network</code></pre>
+<pre class="language-javascript"><code v-pre class="language-javascript">interface fastethernet 0/0
+ip address 10.10.10.2 255.255.255.252
+no shutdown
+!
+interface fastethernet 0/1
+ip address 10.10.10.5 255.255.255.252
+no shutdown
+!
+router ospf 1
+network 10.10.10.0 0.0.0.3 area 0
+network 10.10.10.4 0.0.0.3 area 0</code></pre>
 </doc-codeblock></div>
 <p><figure class="content-center">
     <img src="../../img/ospf_r2.png" alt="">
@@ -290,8 +308,17 @@ Målet er at PC1 kan pinge PC2, og at PC2 kan pinge PC1.</p>
 <doc-tab v-cloak id="r3">
 <template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R3</template>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-javascript"><code v-pre class="language-javascript">router ospf 1
- network</code></pre>
+<pre class="language-javascript"><code v-pre class="language-javascript">interface fastethernet 0/0
+ip address 10.10.10.6 255.255.255.252
+no shutdown
+!
+interface fastethernet 0/1
+ip address 172.16.1.1 255.255.255.252
+no shutdown
+!
+router ospf 1
+network 10.10.10.0 0.0.0.3 area 0
+network 172.16.1.0 0.0.0.255 area 0</code></pre>
 </doc-codeblock></div>
 <p><figure class="content-center">
     <img src="../../img/ospf_r3.png" alt="">

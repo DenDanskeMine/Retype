@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.748535335149">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.748536555545">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.748535335149" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.748536555545" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748535335149" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.748536555545" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748535335149" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.748535335149" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.748536555545" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.748536555545" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
 </head>
 <body>
@@ -265,6 +265,7 @@ Målet er at PC1 kan pinge PC2, og at PC2 kan pinge PC1.</p>
 <doc-tabs>
 <doc-tab v-cloak id="r1">
 <template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R1</template>
+<p><img src="../../img/ospf_r1.png" alt="" /></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-javascript"><code v-pre class="language-javascript">hostname R1
 !
@@ -280,14 +281,10 @@ router ospf 1
 network 10.10.10.0 0.0.0.3 area 0
 network 172.16.0.0 0.0.0.255 area 0</code></pre>
 </doc-codeblock></div>
-<p><figure class="content-center">
-    <img src="../../img/ospf_r1.png" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
 </doc-tab>
 <doc-tab v-cloak id="r2">
 <template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R2</template>
+<p><img src="../../img/ospf_r2.png" alt="" /></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-javascript"><code v-pre class="language-javascript">hostname R2
 !
@@ -303,14 +300,10 @@ router ospf 1
 network 10.10.10.0 0.0.0.3 area 0
 network 10.10.10.4 0.0.0.3 area 0</code></pre>
 </doc-codeblock></div>
-<p><figure class="content-center">
-    <img src="../../img/ospf_r2.png" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
 </doc-tab>
 <doc-tab v-cloak id="r3">
 <template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R3</template>
+<p><img src="../../img/ospf_r3.png" alt="" /></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-javascript"><code v-pre class="language-javascript">hostname R3
 !
@@ -326,17 +319,12 @@ router ospf 1
 network 10.10.10.4 0.0.0.3 area 0
 network 172.16.1.0 0.0.0.255 area 0</code></pre>
 </doc-codeblock></div>
-<p><figure class="content-center">
-    <img src="../../img/ospf_r3.png" alt="">
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
 </doc-tab>
 </doc-tabs>
-<doc-anchor-target id="verificering">
+<doc-anchor-target id="show-ip-route">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#verificering">#</doc-anchor-trigger>
-        <span>Verificering</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#show-ip-route">#</doc-anchor-trigger>
+        <span>show ip route</span>
     </h3>
 </doc-anchor-target>
 <p>For at verificere at det virker, kan vi bruge kommandoen <code v-pre>show ip route</code> på alle routere.</p>
@@ -344,6 +332,7 @@ network 172.16.1.0 0.0.0.255 area 0</code></pre>
 <doc-tabs>
 <doc-tab v-cloak id="r1">
 <template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R1</template>
+<p><img src="../../img/ospf_r1.png" alt="" /></p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-javascript" data-line="16-17"><code v-pre class="language-javascript">R1#show ip route 
 Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
@@ -369,6 +358,7 @@ O       172.16.1.0 [110/3] via 10.10.10.2, 00:00:04, FastEthernet0/0</code></pre
 </doc-tab>
 <doc-tab v-cloak id="r2">
 <template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R2</template>
+<p><img src="../../img/ospf_r2.png" alt="" /></p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-javascript" data-line="16-17"><code v-pre class="language-javascript">R2#show ip route
 Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
@@ -393,6 +383,7 @@ O       172.16.1.0 [110/2] via 10.10.10.6, 00:05:27, FastEthernet0/1</code></pre
 </doc-tab>
 <doc-tab v-cloak id="r3">
 <template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R3</template>
+<p><img src="../../img/ospf_r3.png" alt="" /></p>
 <div class="codeblock-wrapper"><doc-codeblock line-numbers>
 <pre class="language-javascript" data-line="16-17"><code v-pre class="language-javascript">R3#show ip route
 Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
@@ -415,6 +406,49 @@ C       172.16.1.0 is directly connected, FastEthernet0/1</code></pre>
 <p>På linje 16 og 17 kan vi se at R1 har en rute til de to netværk.<br>
 <code v-pre>O</code> betyder at der er en OSPF route, over til PC1s netværk.<br>
 <code v-pre>C</code> betyder at det er en directly connected route til PC2s netværk.</p>
+</doc-tab>
+</doc-tabs>
+<p>I routing tabellen kan vi se [110/2] og [110/3], som er omkostningen til de to netværk.<br>
+<code v-pre>110</code> er OSPF cost, og <code v-pre>2</code> og <code v-pre>3</code> er omkostningen til de to netværk.<br></p>
+<doc-anchor-target id="show-ip-ospf-neighbor">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#show-ip-ospf-neighbor">#</doc-anchor-trigger>
+        <span>show ip ospf neighbor</span>
+    </h3>
+</doc-anchor-target>
+<p>For at verificere at OSPF virker, kan vi også bruge kommandoen <code v-pre>show ip ospf neighbor</code> på alle routere.</p>
+<p>Denne kommnado vil vise os hvilke naboer vi har, og hvilken state de er i.</p>
+<doc-tabs>
+<doc-tab v-cloak id="r1">
+<template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R1</template>
+<p><img src="../../img/ospf_r1.png" alt="" /></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-javascript" data-line="16-17"><code v-pre class="language-javascript">R1#show ip ospf neighbor
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+10.10.10.5        1   FULL/BDR        00:00:36    10.10.10.2      FastEthernet0/0</code></pre>
+</doc-codeblock></div>
+<p>Her kan vi se at R1 har et naboskab med R2, og at de er i state <code v-pre>FULL/BDR</code>.<br></p>
+</doc-tab>
+<doc-tab v-cloak id="r2">
+<template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R2</template>
+<p><img src="../../img/ospf_r2.png" alt="" /></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-javascript" data-line="16-17"><code v-pre class="language-javascript">R2#show ip ospf neighbor
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+172.16.0.1        1   FULL/DR         00:00:35    10.10.10.1      FastEthernet0/0
+172.16.1.1        1   FULL/DR         00:00:34    10.10.10.6      FastEthernet0/1</code></pre>
+</doc-codeblock></div>
+<p>Her kan vi se at R2 har et naboskab med R1 og R3, og at de er i state <code v-pre>FULL/DR</code>.<br></p>
+</doc-tab>
+<doc-tab v-cloak id="r3">
+<template #title><svg xmlns="http://www.w3.org/2000/svg" class="docs-icon" viewBox="0 0 24 24" role="presentation"><g fill="currentColor"><g><path d="M9.036 7.976a.75.75 0 0 0-1.06 1.06L10.939 12l-2.963 2.963a.75.75 0 1 0 1.06 1.06L12 13.06l2.963 2.964a.75.75 0 0 0 1.061-1.06L13.061 12l2.963-2.964a.75.75 0 1 0-1.06-1.06L12 10.939 9.036 7.976Z"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Z"/></g></g></svg> R3</template>
+<p><img src="../../img/ospf_r3.png" alt="" /></p>
+<div class="codeblock-wrapper"><doc-codeblock line-numbers>
+<pre class="language-javascript" data-line="16-17"><code v-pre class="language-javascript">R3#show ip ospf neighbor
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+10.10.10.5        1   FULL/BDR        00:00:31    10.10.10.5      FastEthernet0/0</code></pre>
+</doc-codeblock></div>
+<p>Her kan vi se at R3 har et naboskab med R2, og at de er i state <code v-pre>FULL/BDR</code>.<br></p>
 </doc-tab>
 </doc-tabs>
 

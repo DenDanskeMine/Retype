@@ -13,41 +13,53 @@ Samt er målet også at folk der intet ved, kan lære noget omkring netværk og 
 
 Guides og dokumentation er skrevet på dansk, da det er det sprog vi bedst kan.
 
-Nedenfor kan du se de forskellige kategorier vi har lavet guides til.
+Nedenfor kan du se lidt forskellige guides:
 
-### Eksemple på en guide
+<style>
+    .div {
+        text-align: center;
+        color: #1956AF;
+        border-radius: 10px;
+        background-color: #E1EDFF;
+        border: 1px solid #1956AF;
+        padding-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 48%;
+        float: left;
+        align-items: center;
+    }
+    .div1 {
+        text-align: center;
+        color: #1956AF;
+        border-radius: 10px;
+        background-color: #E1EDFF;
+        border: 1px solid #1956AF;
+        padding-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 31.3%;
+        float: left;
+        align-items: center;
 
-Her er en simpel konfiguration af en [!badge text="router" variant="ghost" ](router.md) og en [!badge text="switch" variant="ghost" ](router.md).
+    }
+</style>
 
-+++ :icon-x-circle: R1
-```js
-interface fastethernet 0/0
- ip address 172.16.0.1 255.255.255.0
- no shutdown
+:::div
+[**Basal Router konfiguration**](/Starterguide/Starter_guide.md)
+:::
+:::div
+[**Basal Switch konfiguration.**](/Starterguide/OSPF.md)
+:::
 
-```
-```mermaid
-flowchart LR
-	1((("&nbsp;R1&nbsp;"))) --- 2["SW1"]
-	style 1 fill:#99e2b4,stroke-width: 0px
-```
-[!button text="Gå til guide"](/Starterguide/starter-guide)
-+++ :icon-arrow-switch: SW1 
-```js
-interface vlan 1
- ip address 172.16.0.2 255.255.255.0
- no shutdown
-
-```
-```mermaid
-flowchart LR
-	1((("&nbsp;R1&nbsp;"))) --- 2["SW1"]
-	style 1 stroke-width: 0px
-	style 2 fill:#99e2b4,stroke-width: 0px
-```
-[!button text="Gå til guide"](/Starterguide/starter-guide)
-+++
-
-
-
-
+:::div1
+[**OSPF LAB.**](/Starterguide/OSPF.md)
+:::
+:::div1
+[**BGP LAB.**](/Starterguide/OSPF.md)
+:::
+:::div1
+[**MPLS LAB.**](/Starterguide/OSPF.md)
+:::

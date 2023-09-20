@@ -254,3 +254,17 @@ Neighbor ID     Pri   State           Dead Time   Address         Interface
 Her kan vi se at R3 har et naboskab med R2, og at de er i state `FULL/BDR`.<br>
 
  +++
+
+## Opsummering
+
+Vi har nu konfigureret OSPF på alle routere, og verificeret at det virker.<br>
+
+Det vi har konfigureret er et single area, hvilket betyder at vi kun har et area, nemlig `area 0`<br>
+Dette bliver også kaldt et backbone area, da det er det primære område i et OSPF netværk.<br>
+
+Man kan ikke have flere areas uden at have et `backbone area`, da alle andre areas skal være forbundet til `area 0`.<br>
+
+ ## Packet Tracer
+Som altid kan du downloade det færdige protjekt her: [!file](/Konfig-LABS/OSPF-LAB1/OSPF-LAB1.pkt)
+
+Se min [!badge Packet Tracer Starterguide](/Starterguide/pt.md)
